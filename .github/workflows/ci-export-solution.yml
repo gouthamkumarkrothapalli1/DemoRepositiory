@@ -1,1 +1,15 @@
+name: Export Solution
 
+on:
+  workflow_dispatch:
+
+jobs:
+  export-solution:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Test Pipeline
+        run: echo "Pipeline is working successfully"

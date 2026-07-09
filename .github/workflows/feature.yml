@@ -11,23 +11,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
       - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Install Power Platform CLI
         uses: microsoft/powerplatform-actions/actions-install@v1
 
-      - name: Add PAC CLI to PATH
+      - name: Check PAC Installation
         run: |
-          echo "$POWERPLATFORMTOOLS_PACPATH" >> $GITHUB_PATH
+          echo "PAC Path: $POWERPLATFORMTOOLS_PACPATH"
+          ls -la $(dirname $POWERPLATFORMTOOLS_PACPATH)
+          $POWERPLATFORMTOOLS_PACPATH --version
 
-      - name: Verify PAC Installation
+      - name: Authenticate to Dataverse
         run: |
-          pac --version
-
-      - name: Authenticate
-        run: |
-          pac auth create \
+          $POWERPLATFORMTOOLS_PACPATH auth create \
             --applicationId "${{ secrets.POWERPLATFORM_APP_ID }}" \
             --clientSecret "${{ secrets.POWERPLATFORM_CLIENT_SECRET }}" \
             --tenant "${{ secrets.POWERPLATFORM_TENANT_ID }}" \
@@ -35,24 +34,24 @@ jobs:
 
       - name: Verify Authentication
         run: |
-          pac auth list
+          $POWERPLATFORMTOOLS_PACPATH auth list
 
       - name: Export Unmanaged Solution
         run: |
-          pac solution export \
-            --name TestSolution \
+          $POWERPLATFORMTOOLS_PACPATH solution export \
+            --name TestDemo \
             --path Solution.zip \
             --managed false
 
-      - name: Create Folder
+      - name: Create Solution Folder
         run: |
-          mkdir -p Solutions/Unmanaged/TestSolution
+          mkdir -p Solutions/Unmanaged/TestDemo
 
       - name: Unpack Solution
         run: |
-          pac solution unpack \
+          $POWERPLATFORMTOOLS_PACPATH solution unpack \
             --zipfile Solution.zip \
-            --folder Solutions/Unmanaged/TestSolution \
+            --folder Solutions/Unmanaged/TestDemo \
             --packagetype Both
 
       - name: Commit Changes
@@ -62,6 +61,6 @@ jobs:
 
           git add .
 
-          git commit -m "Export latest TestSolution" || echo "No changes"
+          git commit -m "Export latest TestDemo solution" || echo "No changes detected"
 
-          git push
+          git push origin ${{ github.ref_name }}

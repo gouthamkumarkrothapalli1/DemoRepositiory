@@ -61,6 +61,6 @@ jobs:
 
           git add Solutions/Unmanaged/TestDemo
 
-          git commit -m "Export latest TestDemo unmanaged solution" || echo "No changes Detected"
+          git commit -m "Export latest TestDemo unmanaged solution" || echo "No changes detected"
 
           git push origin ${{ github.ref_name }}

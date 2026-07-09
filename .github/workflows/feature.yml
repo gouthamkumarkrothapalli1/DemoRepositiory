@@ -18,11 +18,10 @@ jobs:
       - name: Install Power Platform CLI
         uses: microsoft/powerplatform-actions/actions-install@v1
 
-      - name: Check PAC Installation
+      - name: Check PAC Path
         run: |
           echo "PAC Path: $POWERPLATFORMTOOLS_PACPATH"
           ls -la $(dirname $POWERPLATFORMTOOLS_PACPATH)
-          $POWERPLATFORMTOOLS_PACPATH --version
 
       - name: Authenticate to Dataverse
         run: |
@@ -40,27 +39,28 @@ jobs:
         run: |
           $POWERPLATFORMTOOLS_PACPATH solution export \
             --name TestDemo \
-            --path Solution.zip \
+            --path TestDemo.zip \
             --managed false
 
-      - name: Create Solution Folder
+      - name: Prepare Solution Folder
         run: |
+          rm -rf Solutions/Unmanaged/TestDemo
           mkdir -p Solutions/Unmanaged/TestDemo
 
       - name: Unpack Solution
         run: |
           $POWERPLATFORMTOOLS_PACPATH solution unpack \
-            --zipfile Solution.zip \
+            --zipfile TestDemo.zip \
             --folder Solutions/Unmanaged/TestDemo \
-            --packagetype Both
+            --packagetype Unmanaged
 
       - name: Commit Changes
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-          git add .
+          git add Solutions/Unmanaged/TestDemo
 
-          git commit -m "Export latest TestDemo solution" || echo "No changes detected"
+          git commit -m "Export latest TestDemo unmanaged solution" || echo "No changes detected"
 
           git push origin ${{ github.ref_name }}

@@ -3,42 +3,49 @@ name: Feature Pipeline
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   export-solution:
     runs-on: ubuntu-latest
 
     steps:
+
       - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Install Power Platform CLI
         uses: microsoft/powerplatform-actions/actions-install@v1
 
-      - name: Authenticate to Power Platform
-        uses: microsoft/powerplatform-actions/authenticate@v1
-        with:
-          app-id: ${{ secrets.POWERPLATFORM_APP_ID }}
-          client-secret: ${{ secrets.POWERPLATFORM_CLIENT_SECRET }}
-          tenant-id: ${{ secrets.POWERPLATFORM_TENANT_ID }}
-          url: ${{ secrets.DEV_ENV_URL }}
+      - name: Authenticate
+        run: |
+          pac auth create \
+            --applicationId ${{ secrets.POWERPLATFORM_APP_ID }} \
+            --clientSecret ${{ secrets.POWERPLATFORM_CLIENT_SECRET }} \
+            --tenant ${{ secrets.POWERPLATFORM_TENANT_ID }} \
+            --environment ${{ secrets.DEV_ENV_URL }}
+
+      - name: Verify Authentication
+        run: pac auth list
 
       - name: Export Unmanaged Solution
         run: |
           pac solution export \
-            --name TestDemo \
-            --path TestDemo.zip \
-            --managed false
+          --name YOUR_SOLUTION_UNIQUE_NAME \
+          --path Solution.zip \
+          --managed false
 
-      - name: Create Solution Folder
+      - name: Create Folder
         run: |
-          mkdir -p Solutions/Unmanaged/TestDemo
+          mkdir -p Solutions/Unmanaged/YOUR_SOLUTION_UNIQUE_NAME
 
       - name: Unpack Solution
         run: |
           pac solution unpack \
-            --zipfile TestDemo.zip \
-            --folder Solutions/Unmanaged/TestDemo \
-            --packagetype Both
+          --zipfile Solution.zip \
+          --folder Solutions/Unmanaged/YOUR_SOLUTION_UNIQUE_NAME \
+          --packagetype Both
 
       - name: Commit Changes
         run: |
@@ -47,6 +54,6 @@ jobs:
 
           git add .
 
-          git commit -m "Export latest TestDemo" || echo "No changes"
+          git commit -m "Export latest solution" || echo "No changes"
 
-          git push origin ${{ github.ref_name }}
+          git push

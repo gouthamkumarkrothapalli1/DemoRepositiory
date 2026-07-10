@@ -7,6 +7,7 @@ permissions:
   contents: write
 
 jobs:
+  deploy-solution:
   export-solution:
     runs-on: ubuntu-latest
 
@@ -18,6 +19,8 @@ jobs:
       - name: Install Power Platform CLI
         uses: microsoft/powerplatform-actions/actions-install@v1
 
+      # SOURCE ENVIRONMENT LOGIN
+      - name: Authenticate Source Environment
       - name: Check PAC Path
         run: |
           echo "PAC Path: $POWERPLATFORMTOOLS_PACPATH"
@@ -61,6 +64,49 @@ jobs:
 
           git add Solutions/Unmanaged/TestDemo
 
+          git commit -m "Export latest TestDemo unmanaged solution" || echo "No changes are detected"
+
+          git push origin ${{ github.ref_name }}
+
+      # CLEAR SOURCE AUTH
+      - name: Clear Existing Auth
+        run: |
+          $POWERPLATFORMTOOLS_PACPATH auth clear
+
+      # TARGET ENVIRONMENT LOGIN
+      - name: Authenticate Target Environment
+        run: |
+          $POWERPLATFORMTOOLS_PACPATH auth create \
+            --applicationId "${{ secrets.POWERPLATFORM_APP_ID }}" \
+            --clientSecret "${{ secrets.POWERPLATFORM_CLIENT_SECRET }}" \
+            --tenant "${{ secrets.POWERPLATFORM_TENANT_ID }}" \
+            --environment "${{ secrets.DEV_ENV_URL }}"
+
+          #$POWERPLATFORMTOOLS_PACPATH auth create \
+          
+           # --applicationId "${{ secrets.POWERPLATFORM_APP_ID }}" \
+           # --clientSecret "${{ secrets.POWERPLATFORM_CLIENT_SECRET }}" \
+           #--tenant "${{ secrets.POWERPLATFORM_TENANT_ID }}" \
+           # --environment "${{ secrets.TARGET_ENV_URL }}"
+
+      - name: Verify Target Authentication
+        run: |
+          $POWERPLATFORMTOOLS_PACPATH auth list
+
+      # IMPORT UNMANAGED SOLUTION
+      - name: Import Unmanaged Solution
+        run: |
+          $POWERPLATFORMTOOLS_PACPATH solution import \
+            --path TestDemo.zip \
+            --async
+
+      - name: Publish All Customizations
+        uses: microsoft/powerplatform-actions/publish-solution@v1
+        with:   
+            --applicationId "${{ secrets.POWERPLATFORM_APP_ID }}" \
+            --clientSecret "${{ secrets.POWERPLATFORM_CLIENT_SECRET }}" \
+            --tenant "${{ secrets.POWERPLATFORM_TENANT_ID }}" \
+            --environment "${{ secrets.DEV_ENV_URL }}"
           git commit -m "Export latest TestDemo unmanaged solution" || echo "No changes detected"
 
           git push origin ${{ github.ref_name }}

@@ -89,6 +89,10 @@ jobs:
             --path TestDemo.zip \
             --async
 
-      - name: Publish Customizations
-        run: |
-          $POWERPLATFORMTOOLS_PACPATH org publish
+      - name: Publish All Customizations
+        uses: microsoft/powerplatform-actions/publish-solution@v1
+        with:   
+            --applicationId "${{ secrets.POWERPLATFORM_APP_ID }}" \
+            --clientSecret "${{ secrets.POWERPLATFORM_CLIENT_SECRET }}" \
+            --tenant "${{ secrets.POWERPLATFORM_TENANT_ID }}" \
+            --environment "${{ secrets.DEV_ENV_URL }}"

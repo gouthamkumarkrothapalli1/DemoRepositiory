@@ -103,7 +103,7 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="2" schemaName="originatingleadid" displayName="Originating Lead" parentSchemaName="account" parentDisplayName="Account" solution="msdynce_LeadManagement (9.0.4.0066)">
-          <package appName="msdynce_LeadManagement" version="9.0.26064.10001">msdynce_LeadManagementAnchor (9.0.26064.10001)</package>
+          <package appName="msdynce_LeadManagement" version="9.0.26071.10001">msdynce_LeadManagementAnchor (9.0.26071.10001)</package>
         </Required>
         <Dependent type="60" displayName="Account" parentDisplayName="Account" id="{8448b78f-8f42-454e-8e2a-f8196b0419af}" />
       </MissingDependency>

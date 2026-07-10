@@ -90,9 +90,8 @@ jobs:
             --async
 
       - name: Publish All Customizations
-        uses: microsoft/powerplatform-actions/publish-solution@v1
-        with:   
-            --applicationId "${{ secrets.POWERPLATFORM_APP_ID }}" \
-            --clientSecret "${{ secrets.POWERPLATFORM_CLIENT_SECRET }}" \
-            --tenant "${{ secrets.POWERPLATFORM_TENANT_ID }}" \
-            --environment "${{ secrets.DEV_ENV_URL }}"
+        run: |       
+          $POWERPLATFORMTOOLS_PACPATH solution help
+          $POWERPLATFORMTOOLS_PACPATH solution publish
+          
+          

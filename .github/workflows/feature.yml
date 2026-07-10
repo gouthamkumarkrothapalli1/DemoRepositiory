@@ -8,7 +8,6 @@ permissions:
 
 jobs:
   deploy-solution:
-  export-solution:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,22 +20,12 @@ jobs:
 
       # SOURCE ENVIRONMENT LOGIN
       - name: Authenticate Source Environment
-      - name: Check PAC Path
-        run: |
-          echo "PAC Path: $POWERPLATFORMTOOLS_PACPATH"
-          ls -la $(dirname $POWERPLATFORMTOOLS_PACPATH)
-
-      - name: Authenticate to Dataverse
         run: |
           $POWERPLATFORMTOOLS_PACPATH auth create \
             --applicationId "${{ secrets.POWERPLATFORM_APP_ID }}" \
             --clientSecret "${{ secrets.POWERPLATFORM_CLIENT_SECRET }}" \
             --tenant "${{ secrets.POWERPLATFORM_TENANT_ID }}" \
             --environment "${{ secrets.DEV_ENV_URL }}"
-
-      - name: Verify Authentication
-        run: |
-          $POWERPLATFORMTOOLS_PACPATH auth list
 
       - name: Export Unmanaged Solution
         run: |
@@ -104,5 +93,5 @@ jobs:
         run: |       
           $POWERPLATFORMTOOLS_PACPATH solution help
           $POWERPLATFORMTOOLS_PACPATH solution publish
-          
-          
+            
+            

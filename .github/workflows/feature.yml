@@ -93,5 +93,3 @@ jobs:
         run: |       
           $POWERPLATFORMTOOLS_PACPATH solution help
           $POWERPLATFORMTOOLS_PACPATH solution publish
-            
-            

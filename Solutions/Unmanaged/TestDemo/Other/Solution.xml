@@ -192,6 +192,10 @@
         <Required type="connectionreference" displayName="gwt_DataverseOrchestratorPipelineSP" solution="GWTPipelineSolutionTracker (1.0.0.4)" id.connectionreferencelogicalname="gwt_DataverseOrchestratorPipelineSP" />
         <Dependent type="29" displayName="TestDemoFlow" id="{3060d4cb-8980-f111-ab0f-3833c5e4dc86}" />
       </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="gwt_DataverseOrchestratorPipelineSP" solution="GWTPipelineSolutionTracker (1.0.0.4)" id.connectionreferencelogicalname="gwt_DataverseOrchestratorPipelineSP" />
+        <Dependent type="connectionreference" displayName="gwt_DataverseOrchestratorPipelineSP" id.connectionreferencelogicalname="gwt_DataverseOrchestratorPipelineSP" />
+      </MissingDependency>
     </MissingDependencies>
   </SolutionManifest>
 </ImportExportXml>

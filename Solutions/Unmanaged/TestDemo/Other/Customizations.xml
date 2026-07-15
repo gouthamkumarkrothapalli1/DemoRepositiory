@@ -11,6 +11,9 @@
   <optionsets />
   <CustomControls />
   <EntityDataProviders />
+  <connectionreferences>
+    <connectionreference connectionreferencelogicalname="gwt_DataverseOrchestratorPipelineSP"></connectionreference>
+  </connectionreferences>
   <Languages>
     <Language>1033</Language>
   </Languages>

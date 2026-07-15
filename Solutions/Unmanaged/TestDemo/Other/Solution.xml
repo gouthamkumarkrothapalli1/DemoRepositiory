@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.26065.138" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.26065.138" OrganizationSchemaType="Full" CRMServerServiceabilityVersion="9.2.26065.00141">
+<ImportExportXml version="9.2.26071.145" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.26071.145" OrganizationSchemaType="Full" CRMServerServiceabilityVersion="9.2.26071.00145">
   <SolutionManifest>
     <UniqueName>TestDemo</UniqueName>
     <LocalizedNames>
@@ -97,7 +97,7 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="1" schemaName="opportunity" displayName="Opportunity" solution="msdynce_Sales (9.0.4.0076)">
-          <package appName="msdynce_Sales" version="9.0.26064.10009">msdynce_SalesAnchor (9.0.26064.10009)</package>
+          <package appName="msdynce_Sales" version="9.0.26071.10003">msdynce_SalesAnchor (9.0.26071.10003)</package>
         </Required>
         <Dependent type="60" displayName="Account" parentDisplayName="Account" id="{8448b78f-8f42-454e-8e2a-f8196b0419af}" />
       </MissingDependency>
@@ -121,31 +121,31 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="26" schemaName="My Open Opportunities" displayName="My Open Opportunities" parentSchemaName="opportunity" parentDisplayName="Opportunity" solution="msdynce_Sales (9.0.4.0076)" id="{00000000-0000-0000-00aa-000010003000}">
-          <package appName="msdynce_Sales" version="9.0.26064.10009">msdynce_SalesAnchor (9.0.26064.10009)</package>
+          <package appName="msdynce_Sales" version="9.0.26071.10003">msdynce_SalesAnchor (9.0.26071.10003)</package>
         </Required>
         <Dependent type="60" displayName="Account" parentDisplayName="Account" id="{8448b78f-8f42-454e-8e2a-f8196b0419af}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="26" schemaName="Recent Opportunities" displayName="Recent Opportunities" parentSchemaName="opportunity" parentDisplayName="Opportunity" solution="msdynce_Sales (9.0.4.0076)" id="{9c3f7ee8-eca7-e211-9fb6-00155dd0ea05}">
-          <package appName="msdynce_Sales" version="9.0.26064.10009">msdynce_SalesAnchor (9.0.26064.10009)</package>
+          <package appName="msdynce_Sales" version="9.0.26071.10003">msdynce_SalesAnchor (9.0.26071.10003)</package>
         </Required>
         <Dependent type="60" displayName="Account" parentDisplayName="Account" id="{8448b78f-8f42-454e-8e2a-f8196b0419af}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="59" schemaName="Top Customers" displayName="Top Customers" parentSchemaName="opportunity" parentDisplayName="Opportunity" solution="msdynce_Sales (9.0.4.0076)" id="{8bc5fb18-48f2-4782-9e16-3d452fa4ddce}">
-          <package appName="msdynce_Sales" version="9.0.26064.10009">msdynce_SalesAnchor (9.0.26064.10009)</package>
+          <package appName="msdynce_Sales" version="9.0.26071.10003">msdynce_SalesAnchor (9.0.26071.10003)</package>
         </Required>
         <Dependent type="60" displayName="Account" parentDisplayName="Account" id="{8448b78f-8f42-454e-8e2a-f8196b0419af}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="60" displayName="account contact card" parentDisplayName="Contact" solution="msdynce_AppCommon (9.0.4.0066)" id="{29de27bc-a257-4f29-99cf-bab4a84e688f}">
-          <package appName="msdynce_AppCommon" version="9.0.26064.10001">msdynce_AppCommonAnchor (9.0.26064.10001)</package>
+          <package appName="msdynce_AppCommon" version="9.0.26071.10001">msdynce_AppCommonAnchor (9.0.26071.10001)</package>
         </Required>
         <Dependent type="60" displayName="Account" parentDisplayName="Account" id="{8448b78f-8f42-454e-8e2a-f8196b0419af}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="60" displayName="Account" parentDisplayName="Account" solution="msdynce_AppCommon (9.0.4.0066)" id="{8448b78f-8f42-454e-8e2a-f8196b0419af}">
-          <package appName="msdynce_AppCommon" version="9.0.26064.10001">msdynce_AppCommonAnchor (9.0.26064.10001)</package>
+          <package appName="msdynce_AppCommon" version="9.0.26071.10001">msdynce_AppCommonAnchor (9.0.26071.10001)</package>
         </Required>
         <Dependent type="60" displayName="Account" parentDisplayName="Account" id="{8448b78f-8f42-454e-8e2a-f8196b0419af}" />
       </MissingDependency>
@@ -156,20 +156,20 @@
         <Dependent type="60" displayName="Account" parentDisplayName="Account" id="{8448b78f-8f42-454e-8e2a-f8196b0419af}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="61" schemaName="msdyn_SalesOmniChannel/SalesPhoneNumber.Library.js" displayName="msdyn_SalesOmniChannel/SalesPhoneNumber.Library.js" solution="msdyn_SalesOmniChannel (9.1.26064.10001)">
-          <package appName="msdyn_AcceleratedSales" version="9.1.26064.10001">msdyn_AcceleratedSalesAnchor (9.1.26064.10001)</package>
+        <Required type="61" schemaName="msdyn_SalesOmniChannel/SalesPhoneNumber.Library.js" displayName="msdyn_SalesOmniChannel/SalesPhoneNumber.Library.js" solution="msdyn_SalesOmniChannel (9.1.26071.10001)">
+          <package appName="msdyn_AcceleratedSales" version="9.1.26071.10001">msdyn_AcceleratedSalesAnchor (9.1.26071.10001)</package>
         </Required>
         <Dependent type="60" displayName="Account" parentDisplayName="Account" id="{8448b78f-8f42-454e-8e2a-f8196b0419af}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="Microsoft.AddressInputUCI" displayName="Microsoft.AddressInputUCI" solution="BaseCustomControlsCore (9.0.2606.5012)">
-          <package appName="Base Custom Controls" version="9.0.2606.5012">BaseCustomControlsCore (9.0.2606.5012)</package>
+        <Required type="66" schemaName="Microsoft.AddressInputUCI" displayName="Microsoft.AddressInputUCI" solution="BaseCustomControlsCore (9.0.2607.1005)">
+          <package appName="Base Custom Controls" version="9.0.2607.1005">BaseCustomControlsCore (9.0.2607.1005)</package>
         </Required>
         <Dependent type="60" displayName="Account" parentDisplayName="Account" id="{8448b78f-8f42-454e-8e2a-f8196b0419af}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.CardFeedContainer.CardFeedContainer" displayName="MscrmControls.CardFeedContainer.CardFeedContainer" solution="BaseCustomControlsCore (9.0.2606.5012)">
-          <package appName="Base Custom Controls" version="9.0.2606.5012">BaseCustomControlsCore (9.0.2606.5012)</package>
+        <Required type="66" schemaName="MscrmControls.CardFeedContainer.CardFeedContainer" displayName="MscrmControls.CardFeedContainer.CardFeedContainer" solution="BaseCustomControlsCore (9.0.2607.1005)">
+          <package appName="Base Custom Controls" version="9.0.2607.1005">BaseCustomControlsCore (9.0.2607.1005)</package>
         </Required>
         <Dependent type="60" displayName="Account" parentDisplayName="Account" id="{8448b78f-8f42-454e-8e2a-f8196b0419af}" />
       </MissingDependency>
@@ -180,8 +180,8 @@
         <Dependent type="60" displayName="Account" parentDisplayName="Account" id="{8448b78f-8f42-454e-8e2a-f8196b0419af}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="msdyn_SalesOmniChannel.SalesPhoneNumberControl" displayName="msdyn_SalesOmniChannel.SalesPhoneNumberControl" solution="msdyn_SalesOmniChannel (9.1.26064.10001)">
-          <package appName="msdyn_AcceleratedSales" version="9.1.26064.10001">msdyn_AcceleratedSalesAnchor (9.1.26064.10001)</package>
+        <Required type="66" schemaName="msdyn_SalesOmniChannel.SalesPhoneNumberControl" displayName="msdyn_SalesOmniChannel.SalesPhoneNumberControl" solution="msdyn_SalesOmniChannel (9.1.26071.10001)">
+          <package appName="msdyn_AcceleratedSales" version="9.1.26071.10001">msdyn_AcceleratedSalesAnchor (9.1.26071.10001)</package>
         </Required>
         <Dependent type="60" displayName="Account" parentDisplayName="Account" id="{8448b78f-8f42-454e-8e2a-f8196b0419af}" />
       </MissingDependency>

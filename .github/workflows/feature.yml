@@ -58,7 +58,7 @@ jobs:
 
           git add Solutions/Unmanaged/TestDemo
 
-          git commit -m "Export latest TestDemo unmanaged solution" || echo "No changes detected"
+          git commit -m "Export latest TestDemo unmanaged solution" || echo "No changes Detected"
 
           git push origin develop
 

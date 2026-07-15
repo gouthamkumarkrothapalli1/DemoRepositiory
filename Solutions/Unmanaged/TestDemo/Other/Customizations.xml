@@ -13,6 +13,14 @@
   <EntityDataProviders />
   <connectionreferences>
     <connectionreference connectionreferencelogicalname="gwt_DataverseOrchestratorPipelineSP"></connectionreference>
+    <connectionreference connectionreferencelogicalname="nvmmis_TestConnectionCommit">
+      <connectionreferencedisplayname>TestConnectionCommit</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_office365</connectorid>
+      <iscustomizable>1</iscustomizable>
+      <promptingbehavior>0</promptingbehavior>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
   </connectionreferences>
   <Languages>
     <Language>1033</Language>

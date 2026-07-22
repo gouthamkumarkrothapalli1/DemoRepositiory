@@ -42,7 +42,12 @@ jobs:
       - name: Prepare Solution Folder
         run: |
           rm -rf Solutions/Unmanaged/TestDemo
+
           mkdir -p Solutions/Unmanaged/TestDemo
+          mkdir -p Solutions/managed
+
+          cp TestDemo.zip Solutions/Unmanaged/TestDemo_unmanaged.zip
+          cp TestDemo_managed.zip Solutions/managed/TestDemo_managed.zip
 
       - name: Unpack Solution
         run: |
@@ -50,13 +55,22 @@ jobs:
             --zipfile TestDemo.zip \
             --folder Solutions/Unmanaged/TestDemo \
             --packagetype Unmanaged
-
+      
+      - name: Export Managed Solution
+        run: |
+          $POWERPLATFORMTOOLS_PACPATH solution export \
+            --name TestDemo \
+            --path TestDemo_managed.zip \
+            --managed true
+      
       - name: Commit Changes
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
           git add Solutions/Unmanaged/TestDemo
+          git add Solutions/Unmanaged/TestDemo_unmanaged.zip
+          git add Solutions/managed/TestDemo_managed.zip
 
           git commit -m "Export latest TestDemo unmanaged solution" || echo "No changes Detected"
 

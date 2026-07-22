@@ -38,7 +38,16 @@ jobs:
             --name TestDemo \
             --path TestDemo.zip \
             --managed false
-
+   
+         
+      - name: Export Managed Solution
+        run: |
+          $POWERPLATFORMTOOLS_PACPATH solution export \
+            --name TestDemo \
+            --path TestDemo_managed.zip \
+            --managed true
+     
+   
       - name: Prepare Solution Folder
         run: |
           rm -rf Solutions/Unmanaged/TestDemo
@@ -55,13 +64,6 @@ jobs:
             --zipfile TestDemo.zip \
             --folder Solutions/Unmanaged/TestDemo \
             --packagetype Unmanaged
-      
-      - name: Export Managed Solution
-        run: |
-          $POWERPLATFORMTOOLS_PACPATH solution export \
-            --name TestDemo \
-            --folder Solutions/managed/TestDemo_managed.zip \
-            --managed true
       
       - name: Commit Changes
         run: |

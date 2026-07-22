@@ -60,7 +60,7 @@ jobs:
         run: |
           $POWERPLATFORMTOOLS_PACPATH solution export \
             --name TestDemo \
-            --path TestDemo_managed.zip \
+            --folder Solutions/managed/TestDemo_managed.zip \
             --managed true
       
       - name: Commit Changes
